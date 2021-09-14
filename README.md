@@ -10,9 +10,9 @@ make
 ```
 ## Usage
 ```
-./chip8_emulator <ROM path> <Delay> <Scale>
+./c-hip8 <ROM path> [-d <Delay>] [-s <Scale>]
 ```
-Suggested setting for <Delay> is 2000.  
-Suggested setting for <Scale> is 20.
+Default setting for <Delay> is 2000.  
+Default setting for <Scale> is 20.
 
-Launching the program without commandline arguments will just display a Chip-8 logo on a new window.
+Launching the program without any commandline arguments will just display a Chip-8 logo on a new window.
