@@ -12,7 +12,7 @@ make
 ```
 ./c-hip8 <ROM path> [-d <Delay>] [-s <Scale>]
 ```
-Default setting for <Delay> is 2000.  
-Default setting for <Scale> is 20.
+Default setting for Delay is 2000.  
+Default setting for Scale is 20.
 
 Launching the program without any commandline arguments will just display a Chip-8 logo on a new window.
