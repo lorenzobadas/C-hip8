@@ -455,7 +455,7 @@ void Table0(Chip8* chip8) {
             OP_00EE(chip8);
             break;
         default:
-            perror("Error decoding OP in Table0()!\nGot opcode: %X", chip8->opcode);
+            fprintf(stderr, "Error decoding OP in Table0()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -492,7 +492,7 @@ void Table8(Chip8* chip8) {
             OP_8xyE(chip8);
             break;
         default:
-            perror("Error decoding OP in Table8()!\nGot opcode: %X", chip8->opcode);
+            fprintf(stderr, "Error decoding OP in Table8()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -508,7 +508,7 @@ void TableE(Chip8* chip8) {
             OP_Ex9E(chip8);
             break;
         default:
-            perror("Error decoding OP in TableE()!\nGot opcode: %X", chip8->opcode);
+            fprintf(stderr, "Error decoding OP in TableE()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -545,7 +545,7 @@ void TableF(Chip8* chip8) {
             OP_Fx65(chip8);
             break;
         default:
-            perror("Error decoding OP in TableF()!\nGot opcode: %X", chip8->opcode);
+            fprintf(stderr, "Error decoding OP in TableF()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -603,7 +603,7 @@ void call_OP(Chip8* chip8) {
             TableF(chip8);
             break;
         default:
-            perror("Error decoding OP in call_OP()!\nGot opcode: %X", chip8->opcode);
+            fprintf(stderr, "Error decoding OP in call_OP()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
