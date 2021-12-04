@@ -43,7 +43,7 @@ void load_rom(Chip8* chip8, char* filename) {
     FILE* fptr = fopen(filename, "rb");
 
     if (fptr == NULL) {
-        printf("ERROR: File not found while loading ROM\n");
+        perror("ERROR: File not found while loading ROM\n");
         exit(-1);
     }
 
@@ -56,7 +56,7 @@ void load_rom(Chip8* chip8, char* filename) {
     fclose(fptr);
 
     if (i == (0x1000 - START_ADDRESS_ROM)) {
-        printf("ERROR: ROM file is too big!\n");
+        perror("ERROR: ROM file is too big!\n");
         exit(-1);
     }
 
@@ -111,11 +111,6 @@ void free_alloc_chip8(Chip8* chip8) {
 
 void OP_00E0(Chip8* chip8) {
     // CLS - Clear the Display
-
-    /*
-     * Non l'ho implementata esattamente come trovato nel manuale per evitare il warning
-     * ma dovrebbe essere la stessa cosa
-     */
 
     memset(chip8->video, 0, sizeof(uint32_t) * 64 * 32);
 }
@@ -460,7 +455,7 @@ void Table0(Chip8* chip8) {
             OP_00EE(chip8);
             break;
         default:
-            printf("Error decoding OP in Table0()!\nGot opcode: %X", chip8->opcode);
+            perror("Error decoding OP in Table0()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -497,7 +492,7 @@ void Table8(Chip8* chip8) {
             OP_8xyE(chip8);
             break;
         default:
-            printf("Error decoding OP in Table8()!\nGot opcode: %X", chip8->opcode);
+            perror("Error decoding OP in Table8()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -513,7 +508,7 @@ void TableE(Chip8* chip8) {
             OP_Ex9E(chip8);
             break;
         default:
-            printf("Error decoding OP in TableE()!\nGot opcode: %X", chip8->opcode);
+            perror("Error decoding OP in TableE()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -550,7 +545,7 @@ void TableF(Chip8* chip8) {
             OP_Fx65(chip8);
             break;
         default:
-            printf("Error decoding OP in TableF()!\nGot opcode: %X", chip8->opcode);
+            perror("Error decoding OP in TableF()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
@@ -608,7 +603,7 @@ void call_OP(Chip8* chip8) {
             TableF(chip8);
             break;
         default:
-            printf("Error decoding OP in call_OP()!\nGot opcode: %X", chip8->opcode);
+            perror("Error decoding OP in call_OP()!\nGot opcode: %X", chip8->opcode);
             exit(-1);
     }
 }
